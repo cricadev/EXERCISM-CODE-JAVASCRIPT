@@ -27,6 +27,5 @@
         "test": "jest ./*",
         "watch": "jest --watch ./*",
         "lint": "eslint ."
-    },
-    "type": "module"
+    }
 }
