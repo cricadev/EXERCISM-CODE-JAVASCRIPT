@@ -1,3 +1,12 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.dayRate = dayRate;
+exports.daysInBudget = daysInBudget;
+exports.priceWithMonthlyDiscount = priceWithMonthlyDiscount;
+exports.BILLABLE_DAYS = exports.HOURS = void 0;
 // @ts-check
 //
 // ☝🏽 The line above enables type checking for this file. Various IDEs interpret
@@ -5,7 +14,6 @@
 // and supported IDEs when implementing this exercise. You don't need to
 // understand types, JSDoc, or TypeScript in order to complete this JavaScript
 // exercise, and can completely ignore this comment block and directive.
-
 // 👋🏽 Hi again!
 //
 // A quick reminder about exercise stubs:
@@ -18,19 +26,21 @@
 // in idiomatic JavaScript, but some companies and style-guides do enforce them.
 //
 // Get those rates calculated!
-
-export const HOURS = 8;
-export const BILLABLE_DAYS = 22;
+var HOURS = 8;
+exports.HOURS = HOURS;
+var BILLABLE_DAYS = 22;
 /**
  * The day rate, given a rate per hour
  *
  * @param {number} ratePerHour
  * @returns {number} the rate per day
  */
-export function dayRate(ratePerHour) {
-    return ratePerHour * HOURS;
-}
 
+exports.BILLABLE_DAYS = BILLABLE_DAYS;
+
+function dayRate(ratePerHour) {
+  return ratePerHour * HOURS;
+}
 /**
  * Calculates the number of days in a budget, rounded down
  *
@@ -38,10 +48,11 @@ export function dayRate(ratePerHour) {
  * @param {number} ratePerHour: the rate per hour
  * @returns {number} the number of days
  */
-export function daysInBudget(budget, ratePerHour) {
-    return Math.floor(budget / dayRate(ratePerHour));
-}
 
+
+function daysInBudget(budget, ratePerHour) {
+  return Math.floor(budget / dayRate(ratePerHour));
+}
 /**
  * Calculates the discounted rate for large projects, rounded up
  *
@@ -50,11 +61,13 @@ export function daysInBudget(budget, ratePerHour) {
  * @param {number} discount: for example 20% written as 0.2
  * @returns {number} the rounded up discounted rate
  */
-export function priceWithMonthlyDiscount(ratePerHour, numDays, discount) {
-    const daysFullPrice = numDays % BILLABLE_DAYS;
-    const days = numDays - daysFullPrice;
-    const calculateDiscount = (dayRate(ratePerHour) * days) * discount
-    const priceDiscounted = (dayRate(ratePerHour) * days) - calculateDiscount;
-    const priceFull = Math.ceil(priceDiscounted + (daysFullPrice * dayRate(ratePerHour)));
-    return priceFull;
+
+
+function priceWithMonthlyDiscount(ratePerHour, numDays, discount) {
+  var daysFullPrice = numDays % BILLABLE_DAYS;
+  var days = numDays - daysFullPrice;
+  var calculateDiscount = dayRate(ratePerHour) * days * discount;
+  var priceDiscounted = dayRate(ratePerHour) * days - calculateDiscount;
+  var priceFull = Math.ceil(priceDiscounted + daysFullPrice * dayRate(ratePerHour));
+  return priceFull;
 }
