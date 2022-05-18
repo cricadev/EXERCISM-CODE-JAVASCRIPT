@@ -42,8 +42,9 @@ export function backDoorResponse(line) {
     arr.map((a) => {
        newArr.push(Array.from(a.trim()).reverse()[0]);
     })
-    console.log(String(newArr.join("")));
-    return String(newArr.join(""))
+    let word = String(newArr.reverse().join("")[0].toLowerCase());
+    console.log(word);
+    return word;
 
 }
 
@@ -57,13 +58,15 @@ export function backDoorResponse(line) {
  * @returns {string} the back door password
  */
 export function backDoorPassword(word) {
-  throw new Error('Remove this line and implement the function');
+  const wordArr = word.split("");
+  let arr = [];
+  arr.unshift(wordArr[0].toUpperCase())
+  for(let i = 1; i < wordArr.length; i++){
+      
+       arr.push(wordArr[i].toLowerCase());
+  }
+ console.log(arr);
+  return arr.join("").concat(", please");
+
 }
 
-backDoorResponse([
-    'Stands so high   ',
-    'Huge hooves too\t',
-    'Impatiently waits for \t \t',
-    'Reins and harness    ',
-    'Eager to leave\n\n',
-  ])
