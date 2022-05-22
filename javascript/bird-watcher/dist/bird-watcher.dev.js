@@ -19,7 +19,7 @@ function totalBirdCount(birdsPerDay) {
   var number = 0;
 
   for (var i = 0; i < birdsPerDay.length; i++) {
-    console.log(number += birdsPerDay[i]);
+    number += birdsPerDay[i];
   }
 
   return number;
@@ -34,7 +34,27 @@ function totalBirdCount(birdsPerDay) {
 
 
 function birdsInWeek(birdsPerDay, week) {
-  throw new Error('Please implement the birdsInWeek function');
+  if (week >= 2) {
+    var initialWeek = week * 7 - 7;
+    week = week * 7;
+    var birdsWeek = birdsPerDay.slice(initialWeek, week);
+    var number = 0;
+
+    for (var i = 0; i < birdsWeek.length; i++) {
+      number += birdsWeek[i];
+    }
+
+    return number;
+  } else {
+    week = 1;
+    var _number = 0;
+
+    for (var _i = 0; _i < 7; _i++) {
+      _number += birdsPerDay[_i];
+    }
+
+    return _number;
+  }
 }
 /**
  * Fixes the counting mistake by increasing the bird count
@@ -46,5 +66,9 @@ function birdsInWeek(birdsPerDay, week) {
 
 
 function fixBirdCountLog(birdsPerDay) {
-  throw new Error('Please implement the fixBirdCountLog function');
+  for (var i = 0; i < birdsPerDay.length; i += 2) {
+    birdsPerDay[i] += 1;
+  }
+
+  return birdsPerDay;
 }
