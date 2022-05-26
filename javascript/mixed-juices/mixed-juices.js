@@ -37,37 +37,27 @@ export function timeToMixJuice(name) {
  * @returns {number} number of limes cut
  */
 export function limesToCut(wedgesNeeded, limes) {
-  let limeToCut = 0;
-  while(wedgesNeeded > 0){
-  
-  for(let i = 0; i < limes.length; i++){
-  switch(limes[i]){
-    case 'small':
-       wedgesNeeded -= 6;
-			limeToCut++;  
-      if(wedgesNeeded <= 0){
-        i = limes.length;
-      }
-      break;
-    case 'medium': 
-     wedgesNeeded -= 8;
-		limeToCut++;  
-  if(wedgesNeeded <= 0){
-        i = limes.length;
-      }
-      break;
-    case 'large':
-     wedgesNeeded -= 10; 
-		limeToCut++;  
-  if(wedgesNeeded <= 0){
-        i = limes.length;
-      }
-      break;
+  let limeN = 0;
+  for (let i = 0; i < wedgesNeeded; i++) {
+    switch (limes[i]) {
+      case 'small':
+        wedgesNeeded -= 6;
+        limeN += 1;
+        break;
+      case 'medium':
+        wedgesNeeded -= 8;
+        limeN += 1;
+        break;
+      case 'large':
+        wedgesNeeded -= 10;
+        limeN += 1;
+        break;
+    }
   }
-   
-}
-}
- 		return limeToCut;
+  if(wedgesNeeded <= 6 && wedgesNeeded > 0){
+    limeN+=1;
+  }
+  return limeN;
 }
 
 /**

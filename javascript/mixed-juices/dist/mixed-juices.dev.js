@@ -51,45 +51,32 @@ function timeToMixJuice(name) {
 
 
 function limesToCut(wedgesNeeded, limes) {
-  var limeToCut = 0;
+  var limeN = 0;
 
-  while (wedgesNeeded > 0) {
-    for (var i = 0; i < limes.length; i++) {
-      switch (limes[i]) {
-        case 'small':
-          wedgesNeeded -= 6;
-          limeToCut++;
+  for (var i = 0; i < wedgesNeeded; i++) {
+    switch (limes[i]) {
+      case 'small':
+        wedgesNeeded -= 6;
+        limeN += 1;
+        break;
 
-          if (wedgesNeeded <= 0) {
-            i = limes.length;
-          }
+      case 'medium':
+        wedgesNeeded -= 8;
+        limeN += 1;
+        break;
 
-          break;
-
-        case 'medium':
-          wedgesNeeded -= 8;
-          limeToCut++;
-
-          if (wedgesNeeded <= 0) {
-            i = limes.length;
-          }
-
-          break;
-
-        case 'large':
-          wedgesNeeded -= 10;
-          limeToCut++;
-
-          if (wedgesNeeded <= 0) {
-            i = limes.length;
-          }
-
-          break;
-      }
+      case 'large':
+        wedgesNeeded -= 10;
+        limeN += 1;
+        break;
     }
   }
 
-  return limeToCut;
+  if (wedgesNeeded <= 6 && wedgesNeeded > 0) {
+    limeN += 1;
+  }
+
+  return limeN;
 }
 /**
  * Determines which juices still need to be prepared after the end of the shift.
