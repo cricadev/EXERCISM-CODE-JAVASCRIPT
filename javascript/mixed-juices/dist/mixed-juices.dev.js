@@ -88,5 +88,5 @@ function limesToCut(wedgesNeeded, limes) {
 
 
 function remainingOrders(timeLeft, orders) {
-  throw new Error('Please implement the remainingOrders function');
+  console.log(timeLeft, orders);
 }
