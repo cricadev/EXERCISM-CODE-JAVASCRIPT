@@ -68,5 +68,17 @@ export function limesToCut(wedgesNeeded, limes) {
  * @returns {string[]} remaining orders after the time is up
  */
 export function remainingOrders(timeLeft, orders) {
-  console.log(timeLeft, orders);
+  const ordersLeft = [];
+
+  for (const [i,order]  of orders.entries()) {
+    if (timeLeft <= 0 || orders.length === 0){
+      ordersLeft.push(orders.splice(i,orders.length,orders));
+      break;
+    }
+    else{
+      timeLeft -= timeToMixJuice(order);
+      orders.splice(i,1,orders);
+    }
+  }
+  return ordersLeft.flat();
 }
