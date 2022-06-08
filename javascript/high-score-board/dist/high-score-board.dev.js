@@ -1,3 +1,15 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createScoreBoard = createScoreBoard;
+exports.addPlayer = addPlayer;
+exports.removePlayer = removePlayer;
+exports.updateScore = updateScore;
+exports.applyMondayBonus = applyMondayBonus;
+exports.normalizeScore = normalizeScore;
+
 /// <reference path="./global.d.ts" />
 // @ts-check
 
@@ -6,13 +18,12 @@
  *
  * @returns {Record<string, number>} new score board
  */
-export function createScoreBoard() {
-  const highScore = {
-    'The Best Ever' : 1000000,
+function createScoreBoard() {
+  var highScore = {
+    'The Best Ever': 1000000
   };
   return highScore;
 }
-
 /**
  * Adds a player to a score board.
  *
@@ -21,12 +32,12 @@ export function createScoreBoard() {
  * @param {number} score
  * @returns {Record<string, number>} updated score board
  */
-export function addPlayer(scoreBoard, player, score) {
- 
-scoreBoard[`${player}`] = score;
-return scoreBoard;
-}
 
+
+function addPlayer(scoreBoard, player, score) {
+  scoreBoard["".concat(player)] = score;
+  return scoreBoard;
+}
 /**
  * Removes a player from a score board.
  *
@@ -34,11 +45,12 @@ return scoreBoard;
  * @param {string} player
  * @returns {Record<string, number>} updated score board
  */
-export function removePlayer(scoreBoard, player) {
-  delete scoreBoard[`${player}`];
+
+
+function removePlayer(scoreBoard, player) {
+  delete scoreBoard["".concat(player)];
   return scoreBoard;
 }
-
 /**
  * Increases a player's score by the given amount.
  *
@@ -47,31 +59,35 @@ export function removePlayer(scoreBoard, player) {
  * @param {number} points
  * @returns {Record<string, number>} updated score board
  */
-export function updateScore(scoreBoard, player, points) {
-  scoreBoard[`${player}`] += points;
+
+
+function updateScore(scoreBoard, player, points) {
+  scoreBoard["".concat(player)] += points;
   return scoreBoard;
 }
-
 /**
  * Applies 100 bonus points to all players on the board.
  *
  * @param {Record<string, number>} scoreBoard
  * @returns {Record<string, number>} updated score board
  */
-export function applyMondayBonus(scoreBoard) {
-  for(const score in scoreBoard) {
+
+
+function applyMondayBonus(scoreBoard) {
+  for (var score in scoreBoard) {
     scoreBoard[score] += 100;
   }
+
   return scoreBoard;
 }
-
 /**
  * Normalizes a score with the provided normalization function.
  *
  * @param {Params} params the parameters for performing the normalization
  * @returns {number} normalized score
  */
-export function normalizeScore(params) {
-  return params.score = params.normalizeFunction(params.score);
 
+
+function normalizeScore(params) {
+  return params.score = params.normalizeFunction(params.score);
 }
