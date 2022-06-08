@@ -54,7 +54,7 @@ function timeToMixJuice(name) {
  *
  * @param {number} wedgesNeeded
  * @param {string[]} limes
- * @returns {number} number of limes cut
+ * @returns {number} number of limes cut  
  */
 
 
