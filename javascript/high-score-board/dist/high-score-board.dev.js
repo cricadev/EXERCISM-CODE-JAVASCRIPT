@@ -89,5 +89,5 @@ function applyMondayBonus(scoreBoard) {
 
 
 function normalizeScore(params) {
-  return params.score = params.normalizeFunction(params.score);
+  return params.normalizeFunction(params.score);
 }
