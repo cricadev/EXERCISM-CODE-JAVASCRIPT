@@ -32,16 +32,15 @@ export function revokeTicket(visitor) {
  * @returns {string} ticket status
  */
 export function ticketStatus(tickets, ticketId) {
-  for(const ticket in tickets){
-    if((ticket === ticketId) && (tickets[ticket] !== null) ){
-       return `sold to ${tickets[ticket]}`;
-    }
-    else if((ticket === ticketId)  &&  (tickets[ticket] === null)){
-      return 'not sold'
-    }
-    return 'unknown ticked id'
-    
+  if(tickets?.[ticketId] === undefined){
+    return 'unknown ticket id'
   }
+else if(tickets?.[ticketId] === null){
+  return 'not sold'
+}
+else if(tickets?.[ticketId] !== null || undefined){
+  return `sold to ${tickets[ticketId]}`
+}
 }
 
 /**
@@ -53,7 +52,7 @@ export function ticketStatus(tickets, ticketId) {
  * @returns {string} ticket status
  */
 export function simpleTicketStatus(tickets, ticketId) {
-  throw new Error('Please implement the simpleTicketStatus function.');
+  return tickets[ticketId] ?? 'invalid ticket !!!'
 }
 
 /**
@@ -63,5 +62,5 @@ export function simpleTicketStatus(tickets, ticketId) {
  * @returns {string | undefined} version
  */
 export function gtcVersion(visitor) {
-  throw new Error('Please implement the gtcVersion function.');
+  return visitor?.gtc?.version 
 }

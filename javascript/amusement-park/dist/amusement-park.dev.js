@@ -48,17 +48,7 @@ function revokeTicket(visitor) {
  */
 
 
-function ticketStatus(tickets, ticketId) {
-  for (var ticket in tickets) {
-    if (ticket === ticketId && tickets[ticket] !== null) {
-      return "sold to ".concat(tickets[ticket]);
-    } else if (ticket === ticketId && tickets[ticket] === null) {
-      return 'not sold';
-    }
-
-    return 'unknown ticked id';
-  }
-}
+function ticketStatus(tickets, ticketId) {}
 /**
  * Determines the status a ticket has in the ticket tracking object
  * and returns a simplified status message.
