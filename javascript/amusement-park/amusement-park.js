@@ -32,8 +32,15 @@ export function revokeTicket(visitor) {
  * @returns {string} ticket status
  */
 export function ticketStatus(tickets, ticketId) {
-  for(const [ticket, i] of tickets.entries()){
-
+  for(const ticket in tickets){
+    if((ticket === ticketId) && (tickets[ticket] !== null) ){
+       return `sold to ${tickets[ticket]}`;
+    }
+    else if((ticket === ticketId)  &&  (tickets[ticket] === null)){
+      return 'not sold'
+    }
+    return 'unknown ticked id'
+    
   }
 }
 
