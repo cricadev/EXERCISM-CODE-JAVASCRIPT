@@ -1,0 +1,29 @@
+{
+  "name": "@exercism/javascript-lucky-numbers",
+  "description": "Exercism concept exercise on type conversion",
+  "author": "Shubham Singh <shubham88singh@gmail.com>",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/exercism/javascript",
+    "directory": "exercises/concept/lucky-numbers"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@exercism/babel-preset-javascript": "^0.1.2",
+    "@exercism/eslint-config-javascript": "^0.6.0",
+    "@types/jest": "^28.1.1",
+    "@types/node": "^16.11.39",
+    "babel-jest": "^28.1.1",
+    "core-js": "^3.22.8",
+    "eslint": "^8.17.0",
+    "jest": "^28.1.0"
+  },
+  "dependencies": {},
+  "scripts": {
+    "test": "jest ./*",
+    "watch": "jest --watch ./*",
+    "lint": "eslint ."
+  }
+}
