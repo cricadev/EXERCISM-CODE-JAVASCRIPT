@@ -40,11 +40,7 @@ function luckyNumber(value) {
 
 
 function errorMessage(input) {
-  if (!Boolean(input)) {
-    return 'Required field';
-  } else if (!Number(input)) {
-    return 'Must be a number besides 0';
-  }
-
+  if (!Boolean(input)) return 'Required field';
+  if (!Number(input)) return 'Must be a number besides 0';
   return '';
 }
