@@ -10,3 +10,39 @@
  *   ...
  * }
  */
+export function cookingStatus(timer){
+  if(timer === 0){
+    return 'Lasagna is done.'
+  }
+  else if(timer > 0){
+    return 'Not done, please wait.'
+  }
+  return 'You forgot to set the timer.'
+}
+
+export function preparationTime(layers, minPerLayer = 2){
+	return layers.length * minPerLayer;	
+
+}
+export function quantities(layers = []){
+  let sauceNeed = 0;	
+  let noodlesNeed = 0;
+	layers.map((layer) => {
+    console.log(layer)
+    if(layer === 'sauce'){
+      sauceNeed += .2;
+    }
+    if(layer === 'noodles'){
+      noodlesNeed += 50
+    }
+})
+  return { noodles: noodlesNeed, sauce: sauceNeed}
+}
+
+export function addSecretIngredient(friendsList, myList){
+	const secretIngredient = friendsList.slice(friendsList.length -1)
+  myList.push(...secretIngredient)
+}
+  export function scaleRecipe(recipe, portions){
+
+  }
