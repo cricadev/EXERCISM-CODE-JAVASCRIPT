@@ -70,4 +70,17 @@ function addSecretIngredient(friendsList, myList) {
   myList.push.apply(myList, _toConsumableArray(secretIngredient));
 }
 
-function scaleRecipe(recipe, portions) {}
+function scaleRecipe(recipe, portions) {
+  var namesArr = Object.keys(recipe);
+  var quantityArr = [];
+  var result = {};
+
+  for (var myRecipe in recipe) {
+    quantityArr.push(recipe[myRecipe] * (portions / 2));
+  }
+
+  namesArr.forEach(function (key, i) {
+    return result[key] = quantityArr[i];
+  });
+  return result;
+}

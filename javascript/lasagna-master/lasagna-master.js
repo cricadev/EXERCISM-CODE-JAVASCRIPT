@@ -44,5 +44,18 @@ export function addSecretIngredient(friendsList, myList){
   myList.push(...secretIngredient)
 }
   export function scaleRecipe(recipe, portions){
-
+    
+    const namesArr = Object.keys(recipe);
+    const quantityArr = []
+    const result = {};
+  
+    for(const myRecipe in recipe){
+      quantityArr.push(recipe[myRecipe] * (portions / 2))
+    }
+    
+    namesArr.forEach((key,i) => result[key] = quantityArr[i]);
+    return result
+    
+    
+    
   }
