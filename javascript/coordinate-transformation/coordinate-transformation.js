@@ -43,7 +43,9 @@ export function scale2d(sx, sy) {
  *  transformed coordinate pair in the form [x, y]
  */
 export function composeTransform(f, g) {
-  
+  return function(x, y) {
+    return g(...f(x, y));
+  }
 }
 
 /**
@@ -56,4 +58,13 @@ export function composeTransform(f, g) {
  *  if the arguments are the same on subsequent calls, or compute a new result if they are different.
  */
 export function memoizeTransform(f) {
+  let prevX, prevY;
+  let prevVal
+  return function(x, y) {
+    if (x == prevX && y == prevY) {
+      return prevVal;
+    } else {
+      return prevVal = f(prevX = x, prevY = y);
+    }
+  }
 }
